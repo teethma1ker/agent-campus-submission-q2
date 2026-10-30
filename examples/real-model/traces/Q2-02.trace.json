@@ -1,0 +1,184 @@
+{
+  "request": {
+    "id": "Q2-02",
+    "scenario": "缺预算",
+    "acceptance": [
+      "缺预算或截止时间"
+    ],
+    "theme": "秋季新品发布",
+    "budget": null,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "做一支秋季新品视频，先看看有什么方案。",
+    "date": "2026-10-31"
+  },
+  "mode": "real",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-02",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": null,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "已检索素材，命中 7 条：MA01、MA02、MA03、MA06、MA07、MA09、MA11。但任务未提供预算（预算为 None），缺少硬性约束，无法评估 AP-A《精品实拍》或 AP-B《素材混剪》是否在预算内，因此未调用 estimate_cost/generate_script/save_plan，也未保存任何方案。请补充预算后重试。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [],
+    "cost_summary": {
+      "budget": null,
+      "latest_estimates": [],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "search_materials",
+        "args": {
+          "query": "秋季新品"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 1,
+      "succeeded": 1,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 1,
+    "steps_count": 2,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "任务缺少预算（为 None），属于硬性约束缺失；按规则最多调用一次 search_materials 了解素材后立即结束并报告缺口。",
+      "action": "search_materials",
+      "arguments": {
+        "query": "秋季新品"
+      },
+      "observation_summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11",
+      "observation": {
+        "ok": true,
+        "query": "秋季新品",
+        "count": 7,
+        "materials": [
+          {
+            "id": "MA01",
+            "title": "秋季落叶空镜",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "新品",
+              "氛围"
+            ],
+            "note": "4K 空镜，可商用"
+          },
+          {
+            "id": "MA02",
+            "title": "礼盒特写慢动作",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "新品",
+              "礼盒",
+              "质感"
+            ],
+            "note": "棚拍特写，含开合动作"
+          },
+          {
+            "id": "MA03",
+            "title": "门店实拍日常",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "新品",
+              "门店",
+              "日常"
+            ],
+            "note": "店内全景+顾客镜头"
+          },
+          {
+            "id": "MA06",
+            "title": "街头人流延时",
+            "type": "video",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "城市",
+              "氛围"
+            ],
+            "note": "通用氛围素材"
+          },
+          {
+            "id": "MA07",
+            "title": "咖啡角暖光镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "生活",
+              "氛围"
+            ],
+            "note": "生活场景"
+          },
+          {
+            "id": "MA09",
+            "title": "渐变底色版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "版式",
+              "通用"
+            ],
+            "note": "PSD 分层"
+          },
+          {
+            "id": "MA11",
+            "title": "节日颗粒纹理",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "节日",
+              "纹理"
+            ],
+            "note": "叠底纹理"
+          }
+        ]
+      },
+      "decision_basis": "任务缺少预算（为 None），属于硬性约束缺失；按规则最多调用一次 search_materials 了解素材后立即结束并报告缺口。"
+    },
+    {
+      "step": 2,
+      "thought": "任务缺少预算（None），属于硬性约束缺失；已按规则调用过一次 search_materials，现在应立即 finish 并报告缺口，不得继续估算或生成。",
+      "action": "finish",
+      "arguments": {
+        "summary": "已检索素材，命中 7 条：MA01、MA02、MA03、MA06、MA07、MA09、MA11。但任务未提供预算（预算为 None），缺少硬性约束，无法评估 AP-A《精品实拍》或 AP-B《素材混剪》是否在预算内，因此未调用 estimate_cost/generate_script/save_plan，也未保存任何方案。请补充预算后重试。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "任务缺少预算（None），属于硬性约束缺失；已按规则调用过一次 search_materials，现在应立即 finish 并报告缺口，不得继续估算或生成。"
+    }
+  ]
+}

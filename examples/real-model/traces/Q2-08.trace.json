@@ -1,0 +1,467 @@
+{
+  "request": {
+    "id": "Q2-08",
+    "scenario": "失败步骤续跑·第一段（保存失败停止）",
+    "acceptance": [
+      "工具失败",
+      "续跑"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "秋季新品视频，方案出来直接保存。",
+    "date": "2026-10-31",
+    "faults": {
+      "save_plan": {
+        "error": "方案存储不可用（plan-store HTTP 503）",
+        "remaining": 2
+      }
+    }
+  },
+  "mode": "real",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-08",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "已完成素材检索（命中 MA01、MA02、MA03、MA06、MA07、MA09、MA11）；AP-A 不可行（成本 12.0 超预算 2.0，耗时 585 分钟超时 405 分钟）；AP-B 可行（成本 8.0，耗时 150 分钟，在预算 10.0 与截止 3 小时内），并已生成标准脚本 S001。但保存方案失败：save_plan 连续两次返回 plan-store HTTP 503（方案存储不可用），重试后仍失败，因此方案未保存，任务未完成。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [
+      {
+        "from": "AP-A",
+        "from_cost": 12.0,
+        "from_issue": "超预算 2.0",
+        "to": "AP-B",
+        "to_cost": 8.0
+      }
+    ],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [
+        {
+          "approach_id": "AP-A",
+          "total_cost": 12.0,
+          "total_minutes": 585,
+          "feasible": false
+        },
+        {
+          "approach_id": "AP-B",
+          "total_cost": 8.0,
+          "total_minutes": 150,
+          "feasible": true
+        }
+      ],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "search_materials",
+        "args": {
+          "query": "秋季新品"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11"
+      },
+      {
+        "seq": 2,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-A"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟"
+      },
+      {
+        "seq": 3,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行"
+      },
+      {
+        "seq": 4,
+        "tool": "generate_script",
+        "args": {
+          "approach_id": "AP-B",
+          "tier": "standard"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "脚本 S001（AP-B）已生成"
+      },
+      {
+        "seq": 5,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "seq": 6,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 6,
+      "succeeded": 4,
+      "failed": 2
+    },
+    "scripts": [
+      {
+        "script_id": "S001",
+        "approach_id": "AP-B"
+      }
+    ],
+    "failed_calls": [
+      {
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      }
+    ],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 6,
+    "steps_count": 7,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "按流程先检索素材，再从质量最高的 AP-A 开始评估。",
+      "action": "search_materials",
+      "arguments": {
+        "query": "秋季新品"
+      },
+      "observation_summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11",
+      "observation": {
+        "ok": true,
+        "query": "秋季新品",
+        "count": 7,
+        "materials": [
+          {
+            "id": "MA01",
+            "title": "秋季落叶空镜",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "新品",
+              "氛围"
+            ],
+            "note": "4K 空镜，可商用"
+          },
+          {
+            "id": "MA02",
+            "title": "礼盒特写慢动作",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "新品",
+              "礼盒",
+              "质感"
+            ],
+            "note": "棚拍特写，含开合动作"
+          },
+          {
+            "id": "MA03",
+            "title": "门店实拍日常",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "新品",
+              "门店",
+              "日常"
+            ],
+            "note": "店内全景+顾客镜头"
+          },
+          {
+            "id": "MA06",
+            "title": "街头人流延时",
+            "type": "video",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "城市",
+              "氛围"
+            ],
+            "note": "通用氛围素材"
+          },
+          {
+            "id": "MA07",
+            "title": "咖啡角暖光镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "生活",
+              "氛围"
+            ],
+            "note": "生活场景"
+          },
+          {
+            "id": "MA09",
+            "title": "渐变底色版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "版式",
+              "通用"
+            ],
+            "note": "PSD 分层"
+          },
+          {
+            "id": "MA11",
+            "title": "节日颗粒纹理",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "节日",
+              "纹理"
+            ],
+            "note": "叠底纹理"
+          }
+        ]
+      },
+      "decision_basis": "按流程先检索素材，再从质量最高的 AP-A 开始评估。"
+    },
+    {
+      "step": 2,
+      "thought": "素材已检索完成，按质量从高到低先评估 AP-A《精品实拍》是否在预算与截止内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-A"
+      },
+      "observation_summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "decision_basis": "素材已检索完成，按质量从高到低先评估 AP-A《精品实拍》是否在预算与截止内。"
+    },
+    {
+      "step": 3,
+      "thought": "AP-A 超预算且超时，按质量顺序降级评估 AP-B；素材检索已完成，无需重复。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-B",
+        "approach_name": "素材混剪",
+        "material_ids": [
+          "MA02",
+          "MA01"
+        ],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "standard",
+            "ref": null,
+            "cost": 1,
+            "minutes": 30
+          },
+          {
+            "item": "material_license",
+            "tier": "high",
+            "ref": "MA02",
+            "cost": 2,
+            "minutes": 5
+          },
+          {
+            "item": "material_license",
+            "tier": "medium",
+            "ref": "MA01",
+            "cost": 1.5,
+            "minutes": 5
+          },
+          {
+            "item": "edit",
+            "tier": "fast",
+            "ref": null,
+            "cost": 2,
+            "minutes": 90
+          },
+          {
+            "item": "voiceover",
+            "tier": "tts",
+            "ref": null,
+            "cost": 1,
+            "minutes": 10
+          },
+          {
+            "item": "cover",
+            "tier": "template",
+            "ref": null,
+            "cost": 0.5,
+            "minutes": 10
+          }
+        ],
+        "total_cost": 8.0,
+        "total_minutes": 150,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": true,
+        "within_deadline": true,
+        "feasible": true,
+        "over_budget_by": null,
+        "over_deadline_by_min": null
+      },
+      "decision_basis": "AP-A 超预算且超时，按质量顺序降级评估 AP-B；素材检索已完成，无需重复。"
+    },
+    {
+      "step": 4,
+      "thought": "AP-A 超预算超时已排除，AP-B 估算可行（8.0≤10，150分钟≤180分钟），下一步为 AP-B 生成标准脚本",
+      "action": "generate_script",
+      "arguments": {
+        "approach_id": "AP-B",
+        "tier": "standard"
+      },
+      "observation_summary": "脚本 S001（AP-B）已生成",
+      "observation": {
+        "ok": true,
+        "script_id": "S001",
+        "approach_id": "AP-B",
+        "tier": "standard",
+        "script": "素材混剪｜standard 脚本 S001\n开场：3 秒钩子，展示核心卖点（素材：MA02、MA01）\n中段：产品特写 + 使用场景交替，节奏跟音乐鼓点\n结尾：行动号召 + 福利信息条幅（standard 档字幕样式）"
+      },
+      "decision_basis": "AP-A 超预算超时已排除，AP-B 估算可行（8.0≤10，150分钟≤180分钟），下一步为 AP-B 生成标准脚本"
+    },
+    {
+      "step": 5,
+      "thought": "AP-B 估算可行且脚本已生成，下一步保存方案。",
+      "action": "save_plan",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "error: 方案存储不可用（plan-store HTTP 503）",
+      "observation": {
+        "ok": false,
+        "tool": "save_plan",
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "decision_basis": "AP-B 估算可行且脚本已生成，下一步保存方案。"
+    },
+    {
+      "step": 6,
+      "thought": "保存方案时遇到 plan-store 503 错误，按规则先原地重试一次 save_plan",
+      "action": "save_plan",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "error: 方案存储不可用（plan-store HTTP 503）",
+      "observation": {
+        "ok": false,
+        "tool": "save_plan",
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "decision_basis": "保存方案时遇到 plan-store 503 错误，按规则先原地重试一次 save_plan"
+    },
+    {
+      "step": 7,
+      "thought": "AP-B 估算可行且脚本已生成，但 save_plan 已原地重试一次仍返回 503，按规则保留已完成步骤并报告未完成原因，结束。",
+      "action": "finish",
+      "arguments": {
+        "summary": "已完成素材检索（命中 MA01、MA02、MA03、MA06、MA07、MA09、MA11）；AP-A 不可行（成本 12.0 超预算 2.0，耗时 585 分钟超时 405 分钟）；AP-B 可行（成本 8.0，耗时 150 分钟，在预算 10.0 与截止 3 小时内），并已生成标准脚本 S001。但保存方案失败：save_plan 连续两次返回 plan-store HTTP 503（方案存储不可用），重试后仍失败，因此方案未保存，任务未完成。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "AP-B 估算可行且脚本已生成，但 save_plan 已原地重试一次仍返回 503，按规则保留已完成步骤并报告未完成原因，结束。"
+    }
+  ]
+}

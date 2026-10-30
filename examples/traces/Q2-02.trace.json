@@ -1,0 +1,184 @@
+{
+  "request": {
+    "id": "Q2-02",
+    "scenario": "缺预算",
+    "acceptance": [
+      "缺预算或截止时间"
+    ],
+    "theme": "秋季新品发布",
+    "budget": null,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "做一支秋季新品视频，先看看有什么方案。",
+    "date": "2026-10-31"
+  },
+  "mode": "mock",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-02",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": null,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "缺少 预算，无法在预算与截止时间内完成规划；请补充后继续。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [],
+    "cost_summary": {
+      "budget": null,
+      "latest_estimates": [],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "search_materials",
+        "args": {
+          "query": "秋季新品发布"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 1,
+      "succeeded": 1,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 1,
+    "steps_count": 2,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "任务缺少预算或截止时间，先检索相关素材供参考。",
+      "action": "search_materials",
+      "arguments": {
+        "query": "秋季新品发布"
+      },
+      "observation_summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11",
+      "observation": {
+        "ok": true,
+        "query": "秋季新品发布",
+        "count": 7,
+        "materials": [
+          {
+            "id": "MA01",
+            "title": "秋季落叶空镜",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "新品",
+              "氛围"
+            ],
+            "note": "4K 空镜，可商用"
+          },
+          {
+            "id": "MA02",
+            "title": "礼盒特写慢动作",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "新品",
+              "礼盒",
+              "质感"
+            ],
+            "note": "棚拍特写，含开合动作"
+          },
+          {
+            "id": "MA03",
+            "title": "门店实拍日常",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "新品",
+              "门店",
+              "日常"
+            ],
+            "note": "店内全景+顾客镜头"
+          },
+          {
+            "id": "MA06",
+            "title": "街头人流延时",
+            "type": "video",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "城市",
+              "氛围"
+            ],
+            "note": "通用氛围素材"
+          },
+          {
+            "id": "MA07",
+            "title": "咖啡角暖光镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "生活",
+              "氛围"
+            ],
+            "note": "生活场景"
+          },
+          {
+            "id": "MA09",
+            "title": "渐变底色版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "版式",
+              "通用"
+            ],
+            "note": "PSD 分层"
+          },
+          {
+            "id": "MA11",
+            "title": "节日颗粒纹理",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "节日",
+              "纹理"
+            ],
+            "note": "叠底纹理"
+          }
+        ]
+      },
+      "decision_basis": "任务缺少预算或截止时间，先检索相关素材供参考。"
+    },
+    {
+      "step": 2,
+      "thought": "缺少硬性输入，无法完成规划。",
+      "action": "finish",
+      "arguments": {
+        "summary": "缺少 预算，无法在预算与截止时间内完成规划；请补充后继续。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "缺少硬性输入，无法完成规划。"
+    }
+  ]
+}

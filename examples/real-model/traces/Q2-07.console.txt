@@ -1,0 +1,13 @@
+
+=== Q2-07｜工具失败（方案保存失败）｜模型 real ===
+状态：completed（本次运行动作已结束）｜步数 7｜工具调用 6
+计划：未保存｜预算 10｜剩余 None
+改选：AP-A(12.0，超预算 2.0) → AP-B(8.0)
+步骤：成功 4｜失败 2｜本次 6
+  [1] search_materials {"query": "秋季新品"} → succeeded｜命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11
+  [2] estimate_cost {"approach_id": "AP-A"} → succeeded｜AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟
+  [3] estimate_cost {"approach_id": "AP-B"} → succeeded｜AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行
+  [4] generate_script {"approach_id": "AP-B", "tier": "standard"} → succeeded｜脚本 S001（AP-B）已生成
+  [5] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+  [6] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+模型总结：已完成素材检索（命中 MA01、MA02、MA03、MA06、MA07、MA09、MA11）；AP-A 不可行（成本12.0超预算2.0，耗时585分钟超时405分钟）；AP-B 可行（成本8.0、耗时150分钟，在预算10.0与截止3小时内），并已生成标准脚本 S001。但保存方案失败：save_plan 连续两次返回 plan-store HTTP 503（方案存储不可用），重试后仍失败，因此方案未保存，任务未完成。建议待存储服务恢复后重新执行 save_plan（AP-B）。

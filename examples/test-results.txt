@@ -1,0 +1,33 @@
+test_deadline_exceeded_reports_gap (test_scenarios.BudgetExceededTest) ... ok
+test_no_feasible_plan_reports_gap (test_scenarios.BudgetExceededTest) ... ok
+test_budget_claim_without_plan_flagged (test_scenarios.GuardrailTest) ... ok
+test_fake_completion_flagged (test_scenarios.GuardrailTest) ... ok
+test_garbage_output_then_finish (test_scenarios.GuardrailTest) ... ok
+test_step_limit_incomplete (test_scenarios.LimitTest) ... ok
+test_tool_limit_incomplete (test_scenarios.LimitTest) ... ok
+test_missing_budget (test_scenarios.MissingInputTest) ... ok
+test_missing_deadline (test_scenarios.MissingInputTest) ... ok
+test_published_is_not_a_concept (test_scenarios.NormalCompletionTest) ... ok
+test_reference_reroute_12_to_8 (test_scenarios.NormalCompletionTest)
+参考实例：预算 10，AP-A 估算 12 超限 → 改选 AP-B 估算 8 → 脚本 → 保存。 ... ok
+test_existing_plan_not_duplicated (test_scenarios.RepeatExecutionTest) ... ok
+test_same_store_two_runs_one_plan (test_scenarios.RepeatExecutionTest) ... ok
+test_resume_skips_succeeded_steps (test_scenarios.ResumeTest)
+加分项：第一段保存失败 → 第二段以历史步骤续跑，只重做失败步骤。 ... ok
+test_save_failure_retries_then_reports (test_scenarios.ToolFailureTest) ... ok
+test_script_failure_retries_then_stops_keeping_successes (test_scenarios.ToolFailureTest) ... ok
+test_budget_and_deadline_flags (test_tools.CostEngineTest) ... ok
+test_material_license_by_quality (test_tools.CostEngineTest) ... ok
+test_reference_estimates (test_tools.CostEngineTest) ... ok
+test_estimate_requires_budget_and_deadline (test_tools.MissingInputToolTest) ... ok
+test_reject_unknown_and_incomplete (test_tools.SchemaTest) ... ok
+test_full_chain_and_idempotent_save (test_tools.ToolChainTest) ... ok
+test_save_requires_script (test_tools.ToolChainTest) ... ok
+test_script_requires_feasible_estimate (test_tools.ToolChainTest) ... ok
+test_search_hits_by_tag (test_tools.ToolChainTest) ... ok
+test_step_state_records_failures (test_tools.ToolChainTest) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.214s
+
+OK

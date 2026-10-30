@@ -1,0 +1,181 @@
+[
+  {
+    "id": "AP-A",
+    "theme": "秋季新品发布",
+    "name": "精品实拍",
+    "desc": "实拍+精剪，质感最好，成本最高",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "premium"
+      },
+      {
+        "name": "shoot",
+        "tier": "premium"
+      },
+      {
+        "name": "edit",
+        "tier": "fine"
+      },
+      {
+        "name": "voiceover",
+        "tier": "pro"
+      },
+      {
+        "name": "cover",
+        "tier": "custom"
+      }
+    ],
+    "use_materials": []
+  },
+  {
+    "id": "AP-B",
+    "theme": "秋季新品发布",
+    "name": "素材混剪",
+    "desc": "复用授权素材混剪，快剪+标准脚本",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "standard"
+      },
+      {
+        "name": "material_license",
+        "tier": "by_material"
+      },
+      {
+        "name": "edit",
+        "tier": "fast"
+      },
+      {
+        "name": "voiceover",
+        "tier": "tts"
+      },
+      {
+        "name": "cover",
+        "tier": "template"
+      }
+    ],
+    "use_materials": [
+      "MA02",
+      "MA01"
+    ]
+  },
+  {
+    "id": "AP-C",
+    "theme": "秋季新品发布",
+    "name": "模板快发",
+    "desc": "低成本图文快发，模板脚本+快剪",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "template"
+      },
+      {
+        "name": "material_license",
+        "tier": "by_material"
+      },
+      {
+        "name": "edit",
+        "tier": "fast"
+      },
+      {
+        "name": "voiceover",
+        "tier": "tts"
+      },
+      {
+        "name": "cover",
+        "tier": "template"
+      }
+    ],
+    "use_materials": [
+      "MA06",
+      "MA09",
+      "MA11"
+    ]
+  },
+  {
+    "id": "DP-A",
+    "theme": "双十一大促",
+    "name": "直播播前预热",
+    "desc": "实拍预热片，精剪+专业配音",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "premium"
+      },
+      {
+        "name": "shoot",
+        "tier": "basic"
+      },
+      {
+        "name": "edit",
+        "tier": "fine"
+      },
+      {
+        "name": "voiceover",
+        "tier": "pro"
+      },
+      {
+        "name": "cover",
+        "tier": "custom"
+      }
+    ],
+    "use_materials": []
+  },
+  {
+    "id": "DP-B",
+    "theme": "双十一大促",
+    "name": "福利混剪",
+    "desc": "拆箱+产品素材混剪，标准脚本",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "standard"
+      },
+      {
+        "name": "material_license",
+        "tier": "by_material"
+      },
+      {
+        "name": "edit",
+        "tier": "fast"
+      },
+      {
+        "name": "voiceover",
+        "tier": "tts"
+      },
+      {
+        "name": "cover",
+        "tier": "template"
+      }
+    ],
+    "use_materials": [
+      "MA05",
+      "MA08"
+    ]
+  },
+  {
+    "id": "DP-C",
+    "theme": "双十一大促",
+    "name": "图文速发",
+    "desc": "大字报图文，模板脚本，最低成本",
+    "items": [
+      {
+        "name": "generate_script",
+        "tier": "template"
+      },
+      {
+        "name": "material_license",
+        "tier": "by_material"
+      },
+      {
+        "name": "cover",
+        "tier": "template"
+      }
+    ],
+    "use_materials": [
+      "MA10",
+      "MA12"
+    ]
+  }
+]

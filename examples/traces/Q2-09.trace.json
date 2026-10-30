@@ -1,0 +1,359 @@
+{
+  "request": {
+    "id": "Q2-09",
+    "scenario": "失败步骤续跑·第二段（修复后续跑完成）",
+    "acceptance": [
+      "续跑"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "存储已恢复，继续上次未完成的方案。",
+    "date": "2026-10-31",
+    "resume_of": "Q2-08"
+  },
+  "mode": "mock",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-09",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "方案已保存（计划号 P1001，方案 AP-B，成本 8.0 单位，预算剩余 2.0 单位），未超出预算与截止时间。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": {
+      "plan_id": "P1001",
+      "request_id": "Q2-09",
+      "approach_id": "AP-B",
+      "approach_name": "素材混剪",
+      "material_ids": [
+        "MA02",
+        "MA01"
+      ],
+      "cost_lines": [
+        {
+          "item": "generate_script",
+          "tier": "standard",
+          "ref": null,
+          "cost": 1,
+          "minutes": 30
+        },
+        {
+          "item": "material_license",
+          "tier": "high",
+          "ref": "MA02",
+          "cost": 2,
+          "minutes": 5
+        },
+        {
+          "item": "material_license",
+          "tier": "medium",
+          "ref": "MA01",
+          "cost": 1.5,
+          "minutes": 5
+        },
+        {
+          "item": "edit",
+          "tier": "fast",
+          "ref": null,
+          "cost": 2,
+          "minutes": 90
+        },
+        {
+          "item": "voiceover",
+          "tier": "tts",
+          "ref": null,
+          "cost": 1,
+          "minutes": 10
+        },
+        {
+          "item": "cover",
+          "tier": "template",
+          "ref": null,
+          "cost": 0.5,
+          "minutes": 10
+        }
+      ],
+      "total_cost": 8.0,
+      "total_minutes": 150,
+      "budget": 10.0,
+      "budget_left": 2.0,
+      "script_id": "S001",
+      "saved_at": "2026-10-30T14:50:48"
+    },
+    "plan_saved": true,
+    "draft_duplicate": false,
+    "saved_this_run": [
+      "P1001"
+    ],
+    "reroutes": [
+      {
+        "from": "AP-A",
+        "from_cost": 12.0,
+        "from_issue": "超预算 2.0",
+        "to": "AP-B",
+        "to_cost": 8.0
+      }
+    ],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [
+        {
+          "approach_id": "AP-A",
+          "total_cost": 12.0,
+          "total_minutes": 585,
+          "feasible": false
+        },
+        {
+          "approach_id": "AP-B",
+          "total_cost": 8.0,
+          "total_minutes": 150,
+          "feasible": true
+        }
+      ],
+      "saved_plan_cost": 8.0,
+      "saved_plan_minutes": 150,
+      "budget_left": 2.0
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-A"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟"
+      },
+      {
+        "seq": 2,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行"
+      },
+      {
+        "seq": 3,
+        "tool": "generate_script",
+        "args": {
+          "approach_id": "AP-B",
+          "tier": "standard"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "脚本 S001（AP-B）已生成"
+      },
+      {
+        "seq": 4,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "seq": 5,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "seq": 6,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "plan_id=P1001 方案 AP-B 成本 8.0 单位已保存"
+      }
+    ],
+    "step_counts": {
+      "prior": 5,
+      "this_run": 1,
+      "succeeded": 4,
+      "failed": 2
+    },
+    "scripts": [
+      {
+        "script_id": "S001",
+        "approach_id": "AP-B"
+      }
+    ],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 2,
+    "steps_count": 3,
+    "resumed_steps": 1
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "先评估候选方案 AP-A 的成本与耗时是否在预算内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-A"
+      },
+      "observation_summary": "resumed：该步骤上次已成功（序号 1），跳过重复执行",
+      "observation": {
+        "ok": true,
+        "resumed": true,
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "decision_basis": "断点续跑：保留已成功结果，不重复执行"
+    },
+    {
+      "step": 2,
+      "thought": "脚本已生成，方案 AP-B 满足预算与截止时间，保存方案。",
+      "action": "save_plan",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "plan_id=P1001 方案 AP-B 成本 8.0 单位已保存",
+      "observation": {
+        "ok": true,
+        "duplicate": false,
+        "plan_id": "P1001",
+        "request_id": "Q2-09",
+        "approach_id": "AP-B",
+        "approach_name": "素材混剪",
+        "material_ids": [
+          "MA02",
+          "MA01"
+        ],
+        "cost_lines": [
+          {
+            "item": "generate_script",
+            "tier": "standard",
+            "ref": null,
+            "cost": 1,
+            "minutes": 30
+          },
+          {
+            "item": "material_license",
+            "tier": "high",
+            "ref": "MA02",
+            "cost": 2,
+            "minutes": 5
+          },
+          {
+            "item": "material_license",
+            "tier": "medium",
+            "ref": "MA01",
+            "cost": 1.5,
+            "minutes": 5
+          },
+          {
+            "item": "edit",
+            "tier": "fast",
+            "ref": null,
+            "cost": 2,
+            "minutes": 90
+          },
+          {
+            "item": "voiceover",
+            "tier": "tts",
+            "ref": null,
+            "cost": 1,
+            "minutes": 10
+          },
+          {
+            "item": "cover",
+            "tier": "template",
+            "ref": null,
+            "cost": 0.5,
+            "minutes": 10
+          }
+        ],
+        "total_cost": 8.0,
+        "total_minutes": 150,
+        "budget": 10.0,
+        "budget_left": 2.0,
+        "script_id": "S001",
+        "saved_at": "2026-10-30T14:50:48",
+        "note": "方案已保存（模拟环境，不产生外部动作）"
+      },
+      "decision_basis": "脚本已生成，方案 AP-B 满足预算与截止时间，保存方案。"
+    },
+    {
+      "step": 3,
+      "thought": "方案已保存，任务完成。",
+      "action": "finish",
+      "arguments": {
+        "summary": "方案已保存（计划号 P1001，方案 AP-B，成本 8.0 单位，预算剩余 2.0 单位），未超出预算与截止时间。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "方案已保存，任务完成。"
+    }
+  ]
+}

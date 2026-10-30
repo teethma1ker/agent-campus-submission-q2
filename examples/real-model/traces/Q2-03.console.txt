@@ -1,0 +1,7 @@
+
+=== Q2-03｜缺截止时间｜模型 real ===
+状态：completed（本次运行动作已结束）｜步数 2｜工具调用 1
+计划：未保存｜预算 10｜剩余 None
+步骤：成功 1｜失败 0｜本次 1
+  [1] search_materials {"query": "双十一预热"} → succeeded｜命中 5 条素材：MA04, MA05, MA08, MA10, MA12
+模型总结：任务缺少截止时间（截止=None），无法评估方案是否超时，因此未调用 estimate_cost/generate_script/save_plan，未保存任何方案。已检索素材：MA04、MA05、MA08、MA10、MA12（双十一预热相关 5 条）。请补充截止时间后重试；预算 10 单位已提供。

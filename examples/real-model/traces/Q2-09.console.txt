@@ -1,0 +1,14 @@
+
+=== Q2-09｜失败步骤续跑·第二段（修复后续跑完成）｜模型 real ===
+状态：completed（本次运行动作已结束）｜步数 2｜工具调用 1
+计划：已保存 P1001 @ AP-B 成本 8.0｜预算 10｜剩余 2.0
+改选：AP-A(12.0，超预算 2.0) → AP-B(8.0)
+步骤：成功 5｜失败 2｜本次 1
+  [1] search_materials {"query": "秋季新品"} → succeeded｜命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11
+  [2] estimate_cost {"approach_id": "AP-A"} → succeeded｜AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟
+  [3] estimate_cost {"approach_id": "AP-B"} → succeeded｜AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行
+  [4] generate_script {"approach_id": "AP-B", "tier": "standard"} → succeeded｜脚本 S001（AP-B）已生成
+  [5] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+  [6] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+  [7] save_plan {"approach_id": "AP-B"} → succeeded｜plan_id=P1001 方案 AP-B 成本 8.0 单位已保存
+模型总结：沿用上次已完成的检索、估算与脚本生成结果，本轮重试保存成功：方案 AP-B《素材混剪》已保存，plan_id=P1001，成本 8.0 单位，在 10 单位预算与 3 小时截止内。此前 AP-A 因成本过高被降级，最终选用质量次优但可行的 AP-B。

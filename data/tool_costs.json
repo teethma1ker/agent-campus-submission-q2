@@ -1,0 +1,109 @@
+{
+  "currency": "模拟单位",
+  "note": "合成费用与耗时表：工具调用与制作服务的单价/工期",
+  "tools": {
+    "search_materials": {
+      "cost": 0,
+      "minutes": 10,
+      "desc": "素材检索"
+    },
+    "generate_script": {
+      "desc": "脚本生成",
+      "tiers": {
+        "premium": {
+          "cost": 2,
+          "minutes": 60
+        },
+        "standard": {
+          "cost": 1,
+          "minutes": 30
+        },
+        "template": {
+          "cost": 0.5,
+          "minutes": 10
+        }
+      }
+    },
+    "estimate_cost": {
+      "cost": 0,
+      "minutes": 0,
+      "desc": "成本估算"
+    },
+    "save_plan": {
+      "cost": 0,
+      "minutes": 0,
+      "desc": "方案保存"
+    }
+  },
+  "services": {
+    "material_license": {
+      "desc": "素材授权（按素材质量计价）",
+      "tiers": {
+        "high": {
+          "cost": 2,
+          "minutes": 5
+        },
+        "medium": {
+          "cost": 1.5,
+          "minutes": 5
+        },
+        "low": {
+          "cost": 0.5,
+          "minutes": 5
+        }
+      }
+    },
+    "shoot": {
+      "desc": "实拍",
+      "tiers": {
+        "premium": {
+          "cost": 4.5,
+          "minutes": 240
+        },
+        "basic": {
+          "cost": 3,
+          "minutes": 120
+        }
+      }
+    },
+    "edit": {
+      "desc": "剪辑",
+      "tiers": {
+        "fine": {
+          "cost": 3,
+          "minutes": 180
+        },
+        "fast": {
+          "cost": 2,
+          "minutes": 90
+        }
+      }
+    },
+    "voiceover": {
+      "desc": "配音",
+      "tiers": {
+        "pro": {
+          "cost": 1.5,
+          "minutes": 60
+        },
+        "tts": {
+          "cost": 1,
+          "minutes": 10
+        }
+      }
+    },
+    "cover": {
+      "desc": "封面设计",
+      "tiers": {
+        "custom": {
+          "cost": 1,
+          "minutes": 45
+        },
+        "template": {
+          "cost": 0.5,
+          "minutes": 10
+        }
+      }
+    }
+  }
+}

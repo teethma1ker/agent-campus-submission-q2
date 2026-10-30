@@ -1,0 +1,255 @@
+{
+  "request": {
+    "id": "Q2-11",
+    "scenario": "执行上限（未完成状态）",
+    "acceptance": [
+      "执行上限"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "秋季新品视频。",
+    "date": "2026-10-31",
+    "limit_steps": 2
+  },
+  "mode": "real",
+  "status": "incomplete_limit_reached",
+  "report": {
+    "request_id": "Q2-11",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "incomplete_limit_reached",
+    "status_note": "达到执行步数/工具调用上限，存在未完成步骤",
+    "model_summary": null,
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [
+        {
+          "approach_id": "AP-A",
+          "total_cost": 12.0,
+          "total_minutes": 585,
+          "feasible": false
+        }
+      ],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "search_materials",
+        "args": {
+          "query": "秋季新品"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11"
+      },
+      {
+        "seq": 2,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-A"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 2,
+      "succeeded": 2,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 2,
+    "steps_count": 2,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "按流程先检索素材，再评估候选方案；第一步检索秋季新品素材。",
+      "action": "search_materials",
+      "arguments": {
+        "query": "秋季新品"
+      },
+      "observation_summary": "命中 7 条素材：MA01, MA02, MA03, MA06, MA07, MA09, MA11",
+      "observation": {
+        "ok": true,
+        "query": "秋季新品",
+        "count": 7,
+        "materials": [
+          {
+            "id": "MA01",
+            "title": "秋季落叶空镜",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "新品",
+              "氛围"
+            ],
+            "note": "4K 空镜，可商用"
+          },
+          {
+            "id": "MA02",
+            "title": "礼盒特写慢动作",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "新品",
+              "礼盒",
+              "质感"
+            ],
+            "note": "棚拍特写，含开合动作"
+          },
+          {
+            "id": "MA03",
+            "title": "门店实拍日常",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "新品",
+              "门店",
+              "日常"
+            ],
+            "note": "店内全景+顾客镜头"
+          },
+          {
+            "id": "MA06",
+            "title": "街头人流延时",
+            "type": "video",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "城市",
+              "氛围"
+            ],
+            "note": "通用氛围素材"
+          },
+          {
+            "id": "MA07",
+            "title": "咖啡角暖光镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "生活",
+              "氛围"
+            ],
+            "note": "生活场景"
+          },
+          {
+            "id": "MA09",
+            "title": "渐变底色版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "版式",
+              "通用"
+            ],
+            "note": "PSD 分层"
+          },
+          {
+            "id": "MA11",
+            "title": "节日颗粒纹理",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "节日",
+              "纹理"
+            ],
+            "note": "叠底纹理"
+          }
+        ]
+      },
+      "decision_basis": "按流程先检索素材，再评估候选方案；第一步检索秋季新品素材。"
+    },
+    {
+      "step": 2,
+      "thought": "素材已检索完成，按质量从高到低先评估 AP-A《精品实拍》是否在预算与截止内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-A"
+      },
+      "observation_summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "decision_basis": "素材已检索完成，按质量从高到低先评估 AP-A《精品实拍》是否在预算与截止内。"
+    }
+  ]
+}

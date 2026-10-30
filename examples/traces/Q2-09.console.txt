@@ -1,0 +1,13 @@
+
+=== Q2-09｜失败步骤续跑·第二段（修复后续跑完成）｜模型 mock ===
+状态：completed（本次运行动作已结束）｜步数 3｜工具调用 2
+计划：已保存 P1001 @ AP-B 成本 8.0｜预算 10｜剩余 2.0
+改选：AP-A(12.0，超预算 2.0) → AP-B(8.0)
+步骤：成功 4｜失败 2｜本次 1
+  [1] estimate_cost {"approach_id": "AP-A"} → succeeded｜AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟
+  [2] estimate_cost {"approach_id": "AP-B"} → succeeded｜AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行
+  [3] generate_script {"approach_id": "AP-B", "tier": "standard"} → succeeded｜脚本 S001（AP-B）已生成
+  [4] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+  [5] save_plan {"approach_id": "AP-B"} → failed｜方案存储不可用（plan-store HTTP 503）
+  [6] save_plan {"approach_id": "AP-B"} → succeeded｜plan_id=P1001 方案 AP-B 成本 8.0 单位已保存
+模型总结：方案已保存（计划号 P1001，方案 AP-B，成本 8.0 单位，预算剩余 2.0 单位），未超出预算与截止时间。

@@ -1,0 +1,93 @@
+{
+  "request": {
+    "id": "Q2-06",
+    "scenario": "重复执行（已有方案）",
+    "acceptance": [
+      "重复执行"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "秋季新品方案再做一遍（之前提交过）。",
+    "date": "2026-10-31",
+    "existing_plan": {
+      "approach_id": "AP-B",
+      "total_cost": 8.0,
+      "total_minutes": 150
+    }
+  },
+  "mode": "mock",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-06",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "方案已保存（计划号 P1001，方案 AP-B，成本 8.0 单位，预算剩余 2.0 单位），未超出预算与截止时间。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": {
+      "plan_id": "P1001",
+      "request_id": "Q2-06",
+      "approach_id": "AP-B",
+      "approach_name": "素材混剪",
+      "material_ids": [
+        "MA02",
+        "MA01"
+      ],
+      "cost_lines": [],
+      "total_cost": 8.0,
+      "total_minutes": 150,
+      "budget": 10,
+      "budget_left": 2.0,
+      "script_id": "S000",
+      "saved_at": "2026-10-31T09:00:00"
+    },
+    "plan_saved": true,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [],
+      "saved_plan_cost": 8.0,
+      "saved_plan_minutes": 150,
+      "budget_left": 2.0
+    },
+    "steps": [],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 0,
+      "succeeded": 0,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 0,
+    "steps_count": 1,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "方案已保存，任务完成。",
+      "action": "finish",
+      "arguments": {
+        "summary": "方案已保存（计划号 P1001，方案 AP-B，成本 8.0 单位，预算剩余 2.0 单位），未超出预算与截止时间。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "方案已保存，任务完成。"
+    }
+  ]
+}

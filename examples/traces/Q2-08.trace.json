@@ -1,0 +1,356 @@
+{
+  "request": {
+    "id": "Q2-08",
+    "scenario": "失败步骤续跑·第一段（保存失败停止）",
+    "acceptance": [
+      "工具失败",
+      "续跑"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "秋季新品视频，方案出来直接保存。",
+    "date": "2026-10-31",
+    "faults": {
+      "save_plan": {
+        "error": "方案存储不可用（plan-store HTTP 503）",
+        "remaining": 2
+      }
+    }
+  },
+  "mode": "mock",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-08",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "save_plan 连续失败，任务未完成；已完成步骤：['estimate_cost', 'estimate_cost', 'generate_script']，修复后可续跑。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [
+      {
+        "from": "AP-A",
+        "from_cost": 12.0,
+        "from_issue": "超预算 2.0",
+        "to": "AP-B",
+        "to_cost": 8.0
+      }
+    ],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [
+        {
+          "approach_id": "AP-A",
+          "total_cost": 12.0,
+          "total_minutes": 585,
+          "feasible": false
+        },
+        {
+          "approach_id": "AP-B",
+          "total_cost": 8.0,
+          "total_minutes": 150,
+          "feasible": true
+        }
+      ],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-A"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟"
+      },
+      {
+        "seq": 2,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行"
+      },
+      {
+        "seq": 3,
+        "tool": "generate_script",
+        "args": {
+          "approach_id": "AP-B",
+          "tier": "standard"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "脚本 S001（AP-B）已生成"
+      },
+      {
+        "seq": 4,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "seq": 5,
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "failed",
+        "status_view": "failed（本次尝试未成功，结果未被记为成功）",
+        "summary": "方案存储不可用（plan-store HTTP 503）"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 5,
+      "succeeded": 3,
+      "failed": 2
+    },
+    "scripts": [
+      {
+        "script_id": "S001",
+        "approach_id": "AP-B"
+      }
+    ],
+    "failed_calls": [
+      {
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      {
+        "tool": "save_plan",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      }
+    ],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 5,
+    "steps_count": 6,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "先评估候选方案 AP-A 的成本与耗时是否在预算内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-A"
+      },
+      "observation_summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "decision_basis": "先评估候选方案 AP-A 的成本与耗时是否在预算内。"
+    },
+    {
+      "step": 2,
+      "thought": "先评估候选方案 AP-B 的成本与耗时是否在预算内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-B",
+        "approach_name": "素材混剪",
+        "material_ids": [
+          "MA02",
+          "MA01"
+        ],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "standard",
+            "ref": null,
+            "cost": 1,
+            "minutes": 30
+          },
+          {
+            "item": "material_license",
+            "tier": "high",
+            "ref": "MA02",
+            "cost": 2,
+            "minutes": 5
+          },
+          {
+            "item": "material_license",
+            "tier": "medium",
+            "ref": "MA01",
+            "cost": 1.5,
+            "minutes": 5
+          },
+          {
+            "item": "edit",
+            "tier": "fast",
+            "ref": null,
+            "cost": 2,
+            "minutes": 90
+          },
+          {
+            "item": "voiceover",
+            "tier": "tts",
+            "ref": null,
+            "cost": 1,
+            "minutes": 10
+          },
+          {
+            "item": "cover",
+            "tier": "template",
+            "ref": null,
+            "cost": 0.5,
+            "minutes": 10
+          }
+        ],
+        "total_cost": 8.0,
+        "total_minutes": 150,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": true,
+        "within_deadline": true,
+        "feasible": true,
+        "over_budget_by": null,
+        "over_deadline_by_min": null
+      },
+      "decision_basis": "先评估候选方案 AP-B 的成本与耗时是否在预算内。"
+    },
+    {
+      "step": 3,
+      "thought": "方案 AP-B 估算可行，生成脚本。",
+      "action": "generate_script",
+      "arguments": {
+        "approach_id": "AP-B",
+        "tier": "standard"
+      },
+      "observation_summary": "脚本 S001（AP-B）已生成",
+      "observation": {
+        "ok": true,
+        "script_id": "S001",
+        "approach_id": "AP-B",
+        "tier": "standard",
+        "script": "素材混剪｜standard 脚本 S001\n开场：3 秒钩子，展示核心卖点（素材：MA02、MA01）\n中段：产品特写 + 使用场景交替，节奏跟音乐鼓点\n结尾：行动号召 + 福利信息条幅（standard 档字幕样式）"
+      },
+      "decision_basis": "方案 AP-B 估算可行，生成脚本。"
+    },
+    {
+      "step": 4,
+      "thought": "脚本已生成，方案 AP-B 满足预算与截止时间，保存方案。",
+      "action": "save_plan",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "error: 方案存储不可用（plan-store HTTP 503）",
+      "observation": {
+        "ok": false,
+        "tool": "save_plan",
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "decision_basis": "脚本已生成，方案 AP-B 满足预算与截止时间，保存方案。"
+    },
+    {
+      "step": 5,
+      "thought": "保存失败，原地重试一次；此前成功的步骤全部保留。",
+      "action": "save_plan",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "error: 方案存储不可用（plan-store HTTP 503）",
+      "observation": {
+        "ok": false,
+        "tool": "save_plan",
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "decision_basis": "保存失败，原地重试一次；此前成功的步骤全部保留。"
+    },
+    {
+      "step": 6,
+      "thought": "save_plan 重试后仍失败，保留已完成步骤并停止。",
+      "action": "finish",
+      "arguments": {
+        "summary": "save_plan 连续失败，任务未完成；已完成步骤：['estimate_cost', 'estimate_cost', 'generate_script']，修复后可续跑。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "save_plan 重试后仍失败，保留已完成步骤并停止。"
+    }
+  ]
+}

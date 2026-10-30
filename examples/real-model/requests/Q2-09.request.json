@@ -1,0 +1,450 @@
+{
+  "id": "Q2-09",
+  "date": "2026-10-31",
+  "request": "存储已恢复，继续上次未完成的方案。",
+  "task": {
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3
+  },
+  "candidates": [
+    {
+      "id": "AP-A",
+      "theme": "秋季新品发布",
+      "name": "精品实拍",
+      "desc": "实拍+精剪，质感最好，成本最高",
+      "items": [
+        {
+          "name": "generate_script",
+          "tier": "premium"
+        },
+        {
+          "name": "shoot",
+          "tier": "premium"
+        },
+        {
+          "name": "edit",
+          "tier": "fine"
+        },
+        {
+          "name": "voiceover",
+          "tier": "pro"
+        },
+        {
+          "name": "cover",
+          "tier": "custom"
+        }
+      ],
+      "use_materials": []
+    },
+    {
+      "id": "AP-B",
+      "theme": "秋季新品发布",
+      "name": "素材混剪",
+      "desc": "复用授权素材混剪，快剪+标准脚本",
+      "items": [
+        {
+          "name": "generate_script",
+          "tier": "standard"
+        },
+        {
+          "name": "material_license",
+          "tier": "by_material"
+        },
+        {
+          "name": "edit",
+          "tier": "fast"
+        },
+        {
+          "name": "voiceover",
+          "tier": "tts"
+        },
+        {
+          "name": "cover",
+          "tier": "template"
+        }
+      ],
+      "use_materials": [
+        "MA02",
+        "MA01"
+      ]
+    }
+  ],
+  "cost_table": {
+    "search_materials": {
+      "cost": 0,
+      "minutes": 10,
+      "desc": "素材检索"
+    },
+    "generate_script": {
+      "desc": "脚本生成",
+      "tiers": {
+        "premium": {
+          "cost": 2,
+          "minutes": 60
+        },
+        "standard": {
+          "cost": 1,
+          "minutes": 30
+        },
+        "template": {
+          "cost": 0.5,
+          "minutes": 10
+        }
+      }
+    },
+    "estimate_cost": {
+      "cost": 0,
+      "minutes": 0,
+      "desc": "成本估算"
+    },
+    "save_plan": {
+      "cost": 0,
+      "minutes": 0,
+      "desc": "方案保存"
+    },
+    "material_license": {
+      "desc": "素材授权（按素材质量计价）",
+      "tiers": {
+        "high": {
+          "cost": 2,
+          "minutes": 5
+        },
+        "medium": {
+          "cost": 1.5,
+          "minutes": 5
+        },
+        "low": {
+          "cost": 0.5,
+          "minutes": 5
+        }
+      }
+    },
+    "shoot": {
+      "desc": "实拍",
+      "tiers": {
+        "premium": {
+          "cost": 4.5,
+          "minutes": 240
+        },
+        "basic": {
+          "cost": 3,
+          "minutes": 120
+        }
+      }
+    },
+    "edit": {
+      "desc": "剪辑",
+      "tiers": {
+        "fine": {
+          "cost": 3,
+          "minutes": 180
+        },
+        "fast": {
+          "cost": 2,
+          "minutes": 90
+        }
+      }
+    },
+    "voiceover": {
+      "desc": "配音",
+      "tiers": {
+        "pro": {
+          "cost": 1.5,
+          "minutes": 60
+        },
+        "tts": {
+          "cost": 1,
+          "minutes": 10
+        }
+      }
+    },
+    "cover": {
+      "desc": "封面设计",
+      "tiers": {
+        "custom": {
+          "cost": 1,
+          "minutes": 45
+        },
+        "template": {
+          "cost": 0.5,
+          "minutes": 10
+        }
+      }
+    }
+  },
+  "existing_plan": null,
+  "prior_steps": [
+    {
+      "seq": 1,
+      "tool": "search_materials",
+      "args": {
+        "query": "秋季新品"
+      },
+      "status": "succeeded",
+      "result": {
+        "query": "秋季新品",
+        "count": 7,
+        "materials": [
+          {
+            "id": "MA01",
+            "title": "秋季落叶空镜",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "新品",
+              "氛围"
+            ],
+            "note": "4K 空镜，可商用"
+          },
+          {
+            "id": "MA02",
+            "title": "礼盒特写慢动作",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "新品",
+              "礼盒",
+              "质感"
+            ],
+            "note": "棚拍特写，含开合动作"
+          },
+          {
+            "id": "MA03",
+            "title": "门店实拍日常",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "新品",
+              "门店",
+              "日常"
+            ],
+            "note": "店内全景+顾客镜头"
+          },
+          {
+            "id": "MA06",
+            "title": "街头人流延时",
+            "type": "video",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "城市",
+              "氛围"
+            ],
+            "note": "通用氛围素材"
+          },
+          {
+            "id": "MA07",
+            "title": "咖啡角暖光镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "秋季",
+              "生活",
+              "氛围"
+            ],
+            "note": "生活场景"
+          },
+          {
+            "id": "MA09",
+            "title": "渐变底色版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "版式",
+              "通用"
+            ],
+            "note": "PSD 分层"
+          },
+          {
+            "id": "MA11",
+            "title": "节日颗粒纹理",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "秋季",
+              "节日",
+              "纹理"
+            ],
+            "note": "叠底纹理"
+          }
+        ]
+      },
+      "at": "2026-10-30T14:50:10"
+    },
+    {
+      "seq": 2,
+      "tool": "estimate_cost",
+      "args": {
+        "approach_id": "AP-A"
+      },
+      "status": "succeeded",
+      "result": {
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "at": "2026-10-30T14:50:11"
+    },
+    {
+      "seq": 3,
+      "tool": "estimate_cost",
+      "args": {
+        "approach_id": "AP-B"
+      },
+      "status": "succeeded",
+      "result": {
+        "approach_id": "AP-B",
+        "approach_name": "素材混剪",
+        "material_ids": [
+          "MA02",
+          "MA01"
+        ],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "standard",
+            "ref": null,
+            "cost": 1,
+            "minutes": 30
+          },
+          {
+            "item": "material_license",
+            "tier": "high",
+            "ref": "MA02",
+            "cost": 2,
+            "minutes": 5
+          },
+          {
+            "item": "material_license",
+            "tier": "medium",
+            "ref": "MA01",
+            "cost": 1.5,
+            "minutes": 5
+          },
+          {
+            "item": "edit",
+            "tier": "fast",
+            "ref": null,
+            "cost": 2,
+            "minutes": 90
+          },
+          {
+            "item": "voiceover",
+            "tier": "tts",
+            "ref": null,
+            "cost": 1,
+            "minutes": 10
+          },
+          {
+            "item": "cover",
+            "tier": "template",
+            "ref": null,
+            "cost": 0.5,
+            "minutes": 10
+          }
+        ],
+        "total_cost": 8.0,
+        "total_minutes": 150,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": true,
+        "within_deadline": true,
+        "feasible": true,
+        "over_budget_by": null,
+        "over_deadline_by_min": null
+      },
+      "at": "2026-10-30T14:50:12"
+    },
+    {
+      "seq": 4,
+      "tool": "generate_script",
+      "args": {
+        "approach_id": "AP-B",
+        "tier": "standard"
+      },
+      "status": "succeeded",
+      "result": {
+        "script_id": "S001",
+        "approach_id": "AP-B",
+        "tier": "standard",
+        "script": "素材混剪｜standard 脚本 S001\n开场：3 秒钩子，展示核心卖点（素材：MA02、MA01）\n中段：产品特写 + 使用场景交替，节奏跟音乐鼓点\n结尾：行动号召 + 福利信息条幅（standard 档字幕样式）"
+      },
+      "at": "2026-10-30T14:50:13"
+    },
+    {
+      "seq": 5,
+      "tool": "save_plan",
+      "args": {
+        "approach_id": "AP-B"
+      },
+      "status": "failed",
+      "result": {
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "at": "2026-10-30T14:50:14"
+    },
+    {
+      "seq": 6,
+      "tool": "save_plan",
+      "args": {
+        "approach_id": "AP-B"
+      },
+      "status": "failed",
+      "result": {
+        "error": "方案存储不可用（plan-store HTTP 503）"
+      },
+      "at": "2026-10-30T14:50:15"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "request": {
+    "id": "Q2-03",
+    "scenario": "缺截止时间",
+    "acceptance": [
+      "缺预算或截止时间"
+    ],
+    "theme": "双十一大促",
+    "budget": 10,
+    "deadline_hours": null,
+    "candidates": [
+      "DP-A",
+      "DP-B"
+    ],
+    "request": "双十一预热方案，预算 10 个单位。",
+    "date": "2026-10-31"
+  },
+  "mode": "mock",
+  "status": "completed",
+  "report": {
+    "request_id": "Q2-03",
+    "task": {
+      "theme": "双十一大促",
+      "budget": 10,
+      "deadline_hours": null
+    },
+    "status": "completed",
+    "status_note": "本次运行动作已结束",
+    "model_summary": "缺少 截止时间，无法在预算与截止时间内完成规划；请补充后继续。",
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "search_materials",
+        "args": {
+          "query": "双十一大促"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "命中 5 条素材：MA04, MA05, MA08, MA10, MA12"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 1,
+      "succeeded": 1,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 1,
+    "steps_count": 2,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "任务缺少预算或截止时间，先检索相关素材供参考。",
+      "action": "search_materials",
+      "arguments": {
+        "query": "双十一大促"
+      },
+      "observation_summary": "命中 5 条素材：MA04, MA05, MA08, MA10, MA12",
+      "observation": {
+        "ok": true,
+        "query": "双十一大促",
+        "count": 5,
+        "materials": [
+          {
+            "id": "MA04",
+            "title": "模特穿搭走拍",
+            "type": "video",
+            "quality": "high",
+            "tags": [
+              "双十一",
+              "穿搭",
+              "促销"
+            ],
+            "note": "模特授权 1 年"
+          },
+          {
+            "id": "MA05",
+            "title": "产品旋转展示",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "双十一",
+              "产品",
+              "参数"
+            ],
+            "note": "白底旋转台"
+          },
+          {
+            "id": "MA08",
+            "title": "快递拆箱镜头",
+            "type": "video",
+            "quality": "medium",
+            "tags": [
+              "双十一",
+              "拆箱",
+              "福利"
+            ],
+            "note": "拆箱动作完整"
+          },
+          {
+            "id": "MA10",
+            "title": "大字报促销版式",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "双十一",
+              "促销",
+              "版式"
+            ],
+            "note": "可改字"
+          },
+          {
+            "id": "MA12",
+            "title": "福袋元素贴纸",
+            "type": "image",
+            "quality": "low",
+            "tags": [
+              "双十一",
+              "福利",
+              "贴纸"
+            ],
+            "note": "成套 6 枚"
+          }
+        ]
+      },
+      "decision_basis": "任务缺少预算或截止时间，先检索相关素材供参考。"
+    },
+    {
+      "step": 2,
+      "thought": "缺少硬性输入，无法完成规划。",
+      "action": "finish",
+      "arguments": {
+        "summary": "缺少 截止时间，无法在预算与截止时间内完成规划；请补充后继续。"
+      },
+      "observation_summary": "会话结束",
+      "decision_basis": "缺少硬性输入，无法完成规划。"
+    }
+  ]
+}

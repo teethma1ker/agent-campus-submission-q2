@@ -1,0 +1,241 @@
+{
+  "request": {
+    "id": "Q2-11",
+    "scenario": "执行上限（未完成状态）",
+    "acceptance": [
+      "执行上限"
+    ],
+    "theme": "秋季新品发布",
+    "budget": 10,
+    "deadline_hours": 3,
+    "candidates": [
+      "AP-A",
+      "AP-B"
+    ],
+    "request": "秋季新品视频。",
+    "date": "2026-10-31",
+    "limit_steps": 2
+  },
+  "mode": "mock",
+  "status": "incomplete_limit_reached",
+  "report": {
+    "request_id": "Q2-11",
+    "task": {
+      "theme": "秋季新品发布",
+      "budget": 10,
+      "deadline_hours": 3
+    },
+    "status": "incomplete_limit_reached",
+    "status_note": "达到执行步数/工具调用上限，存在未完成步骤",
+    "model_summary": null,
+    "claim_check": {
+      "passed": true,
+      "issues": []
+    },
+    "plan": null,
+    "plan_saved": false,
+    "draft_duplicate": false,
+    "saved_this_run": [],
+    "reroutes": [
+      {
+        "from": "AP-A",
+        "from_cost": 12.0,
+        "from_issue": "超预算 2.0",
+        "to": "AP-B",
+        "to_cost": 8.0
+      }
+    ],
+    "cost_summary": {
+      "budget": 10,
+      "latest_estimates": [
+        {
+          "approach_id": "AP-A",
+          "total_cost": 12.0,
+          "total_minutes": 585,
+          "feasible": false
+        },
+        {
+          "approach_id": "AP-B",
+          "total_cost": 8.0,
+          "total_minutes": 150,
+          "feasible": true
+        }
+      ],
+      "saved_plan_cost": null,
+      "saved_plan_minutes": null,
+      "budget_left": null
+    },
+    "steps": [
+      {
+        "seq": 1,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-A"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟"
+      },
+      {
+        "seq": 2,
+        "tool": "estimate_cost",
+        "args": {
+          "approach_id": "AP-B"
+        },
+        "status": "succeeded",
+        "status_view": "succeeded",
+        "summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行"
+      }
+    ],
+    "step_counts": {
+      "prior": 0,
+      "this_run": 2,
+      "succeeded": 2,
+      "failed": 0
+    },
+    "scripts": [],
+    "failed_calls": [],
+    "publishing": "模拟环境：save_plan 不产生任何外部动作",
+    "tool_calls": 2,
+    "steps_count": 2,
+    "resumed_steps": 0
+  },
+  "trace": [
+    {
+      "step": 1,
+      "thought": "先评估候选方案 AP-A 的成本与耗时是否在预算内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-A"
+      },
+      "observation_summary": "AP-A 成本=12.0 耗时=585分钟 预算=10.0 截止=3.0h → 不可行，超预算 2.0，超时 405分钟",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-A",
+        "approach_name": "精品实拍",
+        "material_ids": [],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "premium",
+            "ref": null,
+            "cost": 2,
+            "minutes": 60
+          },
+          {
+            "item": "shoot",
+            "tier": "premium",
+            "ref": null,
+            "cost": 4.5,
+            "minutes": 240
+          },
+          {
+            "item": "edit",
+            "tier": "fine",
+            "ref": null,
+            "cost": 3,
+            "minutes": 180
+          },
+          {
+            "item": "voiceover",
+            "tier": "pro",
+            "ref": null,
+            "cost": 1.5,
+            "minutes": 60
+          },
+          {
+            "item": "cover",
+            "tier": "custom",
+            "ref": null,
+            "cost": 1,
+            "minutes": 45
+          }
+        ],
+        "total_cost": 12.0,
+        "total_minutes": 585,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": false,
+        "within_deadline": false,
+        "feasible": false,
+        "over_budget_by": 2.0,
+        "over_deadline_by_min": 405
+      },
+      "decision_basis": "先评估候选方案 AP-A 的成本与耗时是否在预算内。"
+    },
+    {
+      "step": 2,
+      "thought": "先评估候选方案 AP-B 的成本与耗时是否在预算内。",
+      "action": "estimate_cost",
+      "arguments": {
+        "approach_id": "AP-B"
+      },
+      "observation_summary": "AP-B 成本=8.0 耗时=150分钟 预算=10.0 截止=3.0h → 可行",
+      "observation": {
+        "ok": true,
+        "approach_id": "AP-B",
+        "approach_name": "素材混剪",
+        "material_ids": [
+          "MA02",
+          "MA01"
+        ],
+        "lines": [
+          {
+            "item": "generate_script",
+            "tier": "standard",
+            "ref": null,
+            "cost": 1,
+            "minutes": 30
+          },
+          {
+            "item": "material_license",
+            "tier": "high",
+            "ref": "MA02",
+            "cost": 2,
+            "minutes": 5
+          },
+          {
+            "item": "material_license",
+            "tier": "medium",
+            "ref": "MA01",
+            "cost": 1.5,
+            "minutes": 5
+          },
+          {
+            "item": "edit",
+            "tier": "fast",
+            "ref": null,
+            "cost": 2,
+            "minutes": 90
+          },
+          {
+            "item": "voiceover",
+            "tier": "tts",
+            "ref": null,
+            "cost": 1,
+            "minutes": 10
+          },
+          {
+            "item": "cover",
+            "tier": "template",
+            "ref": null,
+            "cost": 0.5,
+            "minutes": 10
+          }
+        ],
+        "total_cost": 8.0,
+        "total_minutes": 150,
+        "budget": 10.0,
+        "deadline_hours": 3.0,
+        "deadline_minutes": 180,
+        "within_budget": true,
+        "within_deadline": true,
+        "feasible": true,
+        "over_budget_by": null,
+        "over_deadline_by_min": null
+      },
+      "decision_basis": "先评估候选方案 AP-B 的成本与耗时是否在预算内。"
+    }
+  ]
+}

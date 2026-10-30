@@ -1,0 +1,14 @@
+[
+  {"id": "MA01", "title": "秋季落叶空镜", "type": "video", "quality": "medium", "tags": ["秋季", "新品", "氛围"], "duration_min": 45, "note": "4K 空镜，可商用"},
+  {"id": "MA02", "title": "礼盒特写慢动作", "type": "video", "quality": "high", "tags": ["新品", "礼盒", "质感"], "duration_min": 20, "note": "棚拍特写，含开合动作"},
+  {"id": "MA03", "title": "门店实拍日常", "type": "video", "quality": "medium", "tags": ["新品", "门店", "日常"], "duration_min": 60, "note": "店内全景+顾客镜头"},
+  {"id": "MA04", "title": "模特穿搭走拍", "type": "video", "quality": "high", "tags": ["双十一", "穿搭", "促销"], "duration_min": 40, "note": "模特授权 1 年"},
+  {"id": "MA05", "title": "产品旋转展示", "type": "video", "quality": "medium", "tags": ["双十一", "产品", "参数"], "duration_min": 30, "note": "白底旋转台"},
+  {"id": "MA06", "title": "街头人流延时", "type": "video", "quality": "low", "tags": ["秋季", "城市", "氛围"], "duration_min": 25, "note": "通用氛围素材"},
+  {"id": "MA07", "title": "咖啡角暖光镜头", "type": "video", "quality": "medium", "tags": ["秋季", "生活", "氛围"], "duration_min": 35, "note": "生活场景"},
+  {"id": "MA08", "title": "快递拆箱镜头", "type": "video", "quality": "medium", "tags": ["双十一", "拆箱", "福利"], "duration_min": 30, "note": "拆箱动作完整"},
+  {"id": "MA09", "title": "渐变底色版式", "type": "image", "quality": "low", "tags": ["秋季", "版式", "通用"], "duration_min": 0, "note": "PSD 分层"},
+  {"id": "MA10", "title": "大字报促销版式", "type": "image", "quality": "low", "tags": ["双十一", "促销", "版式"], "duration_min": 0, "note": "可改字"},
+  {"id": "MA11", "title": "节日颗粒纹理", "type": "image", "quality": "low", "tags": ["秋季", "节日", "纹理"], "duration_min": 0, "note": "叠底纹理"},
+  {"id": "MA12", "title": "福袋元素贴纸", "type": "image", "quality": "low", "tags": ["双十一", "福利", "贴纸"], "duration_min": 0, "note": "成套 6 枚"}
+]
